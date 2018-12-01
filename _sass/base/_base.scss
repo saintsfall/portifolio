@@ -1,12 +1,41 @@
+/////////////////////////////////////
+//// BASE
+
 *,
 *:before,
 *:after{
-    box-sizing: border-box;
+    box-sizing: inherit;
 
     margin: 0;
     padding: 0;
 }
 
+html{
+    font-family: $primary-font;
+    font-size: 62.5%;
+
+    @include respond(tablet-landscape){
+        // width <= 1200? (max-width)
+        font-size: 56.25%; // 1rem == 9px (9/16 * 100)
+    }
+
+    @include respond(table-portrait){
+        // width <= 900? (max-width)
+        font-size: 50%; // 1rem == 8px (8/16 * 100)
+    }
+
+    @include respond(big-screen){
+        // width >= 1800? (min-width)
+        font-size: 75%; // 1rem == 12px (12/16 * 100)
+    }
+}
+
 body{
-    background-color: honeydew;
+    box-sizing: border-box;
+}
+
+a{
+    &:visited{
+        color: inherit;
+    }
 }

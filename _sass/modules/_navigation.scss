@@ -1,0 +1,63 @@
+.navigation{
+    position: absolute;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0 auto;
+    padding: 4rem;
+    
+    max-width: 100rem;
+    height: auto;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    &__logo{
+        width: 5rem;
+        height: 5rem;
+
+        background-image: url('/assets/images/logo.png');
+        @include backgroundDefault;
+    }
+
+    &__list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        list-style: none;
+
+        @include respond(phone){
+            display: none;
+        }
+    }
+
+    &__item{
+        padding-right: 2rem;
+
+        &:last-of-type{
+            padding-right: 0;
+        }
+
+    }
+
+    &__link{
+        font-size: 1.3rem;
+        font-weight: 400;
+        text-decoration: none;
+        color: $color-black;
+
+        text-shadow: 1px 3px 6px rgba($color-black, .35);
+
+        transition: all .3s ease-in;
+
+        &:hover,
+        &:active{
+            color: darken($color-white, 45%);
+            text-shadow: 2px 6px 12px rgba($color-black, .25);
+        }
+    }
+}

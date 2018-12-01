@@ -1,0 +1,58 @@
+/////////////////////////////////////
+//// MIXINS
+
+// General Mixins
+
+@mixin clearfix{
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absoluteCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin backgroundDefault{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+// Breakpoints
+// 0 - 600px = Phone devices
+// 600px - 900px = Tablet portrait
+// 900px - 1200px = Tablet landscape
+// 1200px - 1800px = Default
+// 1800px - ... = Big screen devices
+
+@mixin respond($breakpoint){
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em){
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet-portrait {
+        @media (max-width: 56.25em){
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet-landscape {
+        @media (max-width: 75em){
+            @content;
+        }
+    }
+
+    @if $breakpoint == big-screen {
+        @media (min-width: 112.5em){
+            @content;
+        }
+    }
+}
